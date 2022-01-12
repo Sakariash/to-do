@@ -66,7 +66,9 @@ form {
 .show-task {
   background: none;
 }
-
+.completed-switch {
+  background: none;
+}
 .completeBtn {
   background: none;
 }
