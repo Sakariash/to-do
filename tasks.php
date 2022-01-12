@@ -32,7 +32,16 @@ require __DIR__ . '/navigation.php';
             <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['task-updated']); ?></p>
         <?php unset($_SESSION['task-updated']);
         endif;
+        if (isset($_SESSION['task-done'])) : ?>
+            <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['task-done']); ?></p>
+        <?php unset($_SESSION['task-done']);
+        endif;
+        if (isset($_SESSION['task-uncompleted'])) : ?>
+            <p class="alert alert-primary"><?php echo htmlspecialchars($_SESSION['task-uncompleted']); ?></p>
+        <?php unset($_SESSION['task-uncompleted']);
+        endif;
         ?>
+
 
         <h3 class="title"><?php echo htmlspecialchars($_SESSION['user']['name']) ?>, lets create a task and finish it in the last second! </h3>
         <div class="form-group">
@@ -91,14 +100,22 @@ require __DIR__ . '/navigation.php';
                         </div>
 
                         <div class="col-md-push-2 col-sm-push-1 col-xs-push-0">
-                            <form action="/app/tasks/update-task.php" method="POST">
-                                <input type="hidden" value="<?php echo $task['id'] ?>" name="not-completed-task">
-                                <button type="submit" name="completed" class="completeBtn btn btn-form btn-sm img-responsive"><img src="/assets/images/double-tick-not-done.png" class="complete" value="<?= $task['id'] ?>"></button>
-                            </form>
 
                             <form action="/app/tasks/update-task.php" method="POST">
-                                <input type="hidden" value="<?php echo $task['id'] ?>" name="completed-task">
-                                <button type="submit" name="completed" class="completeBtn btn btn-form btn-sm img-responsive"><img src="/assets/images/double-tick-done.png" class="complete" value="<?= $task['id'] ?>"></button>
+
+                                <input type="hidden" value="<?php echo $task['id'] ?>" name="completed-switch">
+
+                                <button type="submit" name="not-completed" class="completed-switch btn btn-form btn-sm img-responsive">
+
+                                    <?php if ($task['completed'] == true) : ?>
+                                        <img src="/assets/images/double-tick-done.png" class="doneBtn" value="<?php echo $task['id'] ?>">
+                                    <?php else : ?>
+                                        <img src="/assets/images/double-tick-not-done.png" class="not-complete" value="<?php echo $task['id'] ?>">
+                                    <?php endif; ?>
+                                </button>
+
+                                <!-- <input type="hidden" value="<?php echo $task['id'] ?>" name="completed-task">
+                                <button type="submit" name="task-completed" class="completeBtn btn btn-form btn-sm img-responsive hidden"><img src="/assets/images/double-tick-done.png" class="doneBtn" value="<?= $task['id'] ?>"></button> -->
                             </form>
 
                             <button type="submit" name="edit-task" class="editBtn btn btn-form btn-sm img-responsive"><img src="/assets/images/edit.png" class="img-responsive" value="<?= $task['id'] ?>"></button>
