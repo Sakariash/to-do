@@ -1,10 +1,7 @@
 <?php
 
 declare(strict_types=1);
-//TELL THE USER IF PASSWORD WASN'T REPEATED
-//Add confirm with old password then log out user
-//Secure password por favor
-//Can still get same email!!!
+
 require __DIR__ . '/../autoload.php';
 
 
@@ -17,7 +14,7 @@ if (isset($_POST['submit'])) :
 
         redirect('/profile.php');
     endif;
-    //kolla confirm med lösenord
+
     $query = 'SELECT password from users WHERE id = :id';
 
     $statement = $database->prepare($query);
