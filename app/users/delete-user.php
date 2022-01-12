@@ -6,6 +6,7 @@ require __DIR__ . '/../autoload.php';
 
 if (isset($_POST['password'])) :
     $user_id = $_SESSION['user']['id'];
+    $password = $_POST['password'];
 
     $query = 'SELECT password from users WHERE id = :id';
 
@@ -15,7 +16,7 @@ if (isset($_POST['password'])) :
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-    if (!password_verify($_POST['password'], $user['password'])) :
+    if (!password_verify($password, $user['password'])) :
 
         $_SESSION['password-errors'][] = 'You typed in the wrong password, please try again! Your account is still active.';
 
