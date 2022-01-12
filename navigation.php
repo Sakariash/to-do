@@ -70,9 +70,8 @@ $first_part = $components[1];
                                                 <img class="img-profile img-circle img-responsive" src="/assets/images/Tick-Green-Check.png" alt="">
                                                 <ul class="meta list list-unstyled">
                                                     <li class="name"><?php echo $_SESSION['user']['name'] ?><br>
-                                                        <label class="label label-info">Web developer</label>
+                                                        <label class="label-sm label-info">Just do it!</label>
                                                     </li>
-                                                    <li class="activity">Web developer</li>
                                                 </ul>
                                             </div>
 
