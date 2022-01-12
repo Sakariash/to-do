@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+$tasks = get_all_tasks($database);
+
+
 if (isset($_POST['title'], $_POST['description'])) :
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
@@ -31,6 +34,46 @@ if (isset($_POST['title'], $_POST['description'])) :
     $_SESSION['task-updated'] = 'Your task was successfully updated.';
     redirect('/tasks.php');
 endif;
+
+if (isset($_POST['completed-switch'])) :
+    $taskId = $_POST['completed-switch'];
+    $completed = True;
+
+    foreach ($tasks as $task) :
+        if ($task['id'] === $taskId) :
+            if ($task['completed'] == $completed) :
+                $completed = false;
+
+                $query = 'UPDATE tasks SET completed = :completed WHERE id = :id';
+                $statement = $database->prepare($query);
+                $statement->bindParam(':id', $taskId, PDO::PARAM_INT);
+                $statement->bindParam(':completed', $completed, PDO::PARAM_BOOL);
+                $statement->execute();
+
+                $_SESSION['task-uncompleted'] = 'Ye it be like that sometimes.. You\'ll get there!';
+
+                redirect('/tasks.php');
+            endif;
+        endif;
+    endforeach;
+
+
+    $query = 'UPDATE tasks SET completed = :completed WHERE id = :id';
+    $statement = $database->prepare($query);
+    $statement->bindParam(':id', $taskId, PDO::PARAM_INT);
+    $statement->bindParam(':completed', $completed, PDO::PARAM_BOOL);
+    $statement->execute();
+
+    $_SESSION['task-done'] = 'You got it done, great job!';
+
+    redirect('/tasks.php');
+
+endif;
+
+
+
+
+
 
 $_SESSION['errors'][] = 'Something went wrong.';
 
