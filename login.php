@@ -1,5 +1,6 @@
 <?php require __DIR__ . '/navigation.php' ?>
 
+<?php endif; ?>
 <div class="content-panel">
     <h1 class="title">Welcome!</h1>
     <h2 class="fieldset-title">Log in</h2>

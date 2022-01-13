@@ -8,8 +8,8 @@
             foreach ($_SESSION['errors'] as $error) : ?>
                 <p class="alert alert-danger"><?php echo htmlspecialchars($error) ?></p>
             <?php endforeach; ?>
-        <?php unset($_SESSION['errors']);
-        endif; ?>
+            <?php unset($_SESSION['errors']); ?>
+        <?php endif; ?>
         <form action="app/users/register.php" method="post" class="form-horizontal">
             <div class="form-group">
                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Name</label>

@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) :
         $number = preg_match('@[0-9]@', $updPwd);
         $specialChars = preg_match('@[^\w]@', $updPwd);
 
-        if (!$uppercase || !$number || !$specialChars || strlen($updPwd,) < 8) :
+        if (!$uppercase || !$number || !$specialChars || strlen($updPwd) < 8) :
             $_SESSION['errors'][] = 'The password should contain atleast 8 characters and should include at least one uppercase letter, one number, and one special character!';
             redirect('/profile.php');
         else :

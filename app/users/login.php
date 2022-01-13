@@ -35,7 +35,8 @@ if (isset($_POST['email'], $_POST['password'])) :
         ];
 
         redirect('/index.php');
-    elseif (!password_verify($_POST['password'], $user['password']) || $user['email'] !== $_POST['email']) :
+    endif;
+    if (!password_verify($_POST['password'], $user['password']) || $user['email'] !== $_POST['email']) :
 
         $_SESSION['errors'][] = 'The email address or the password is incorrect.';
         redirect('/login.php');

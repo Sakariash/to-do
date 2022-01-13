@@ -28,17 +28,17 @@
                 foreach ($_SESSION['update-errors'] as $error) : ?>
                     <p class="alert alert-danger"><?php echo htmlspecialchars($error) ?></p>
                 <?php endforeach; ?>
-            <?php unset($_SESSION['update-errors']);
-            endif; ?>
+                <?php unset($_SESSION['update-errors']); ?>
+            <?php endif; ?>
             <?php if (isset($_SESSION['confirm'])) : ?>
                 <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['confirm']) ?></p>
-            <?php unset($_SESSION['confirm']);
-            endif; ?>
+                <?php unset($_SESSION['confirm']); ?>
+            <?php endif; ?>
             <?php if (isset($_SESSION['password-errors'])) :
                 foreach ($_SESSION['password-errors'] as $error) : ?>
                     <p class="alert alert-danger"><?php echo htmlspecialchars($error) ?></p>
-            <?php endforeach;
-                unset($_SESSION['password-errors']);
+                <?php endforeach; ?>
+            <?php unset($_SESSION['password-errors']);
             endif; ?>
             <?php if (isset($_SESSION['password_updated'])) : ?>
                 <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['password_updated']) ?></p>
@@ -52,8 +52,8 @@
             <?php endif; ?>
             <?php if (isset($_SESSION['confirm-email'])) : ?>
                 <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['confirm-email']) ?></p>
-            <?php unset($_SESSION['confirm-email']);
-            endif; ?>
+                <?php unset($_SESSION['confirm-email']); ?>
+            <?php endif; ?>
             <div class="hidden" id="update-profile">
                 <form action="app/users/update2.php" method="post" class="form-horizontal">
                     <div class="form-group">

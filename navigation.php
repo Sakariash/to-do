@@ -30,51 +30,63 @@ $first_part = $components[1];
                             <nav class="side-menu">
                                 <ul class="nav">
                                     <li class="
-                                    <?php if ($first_part == "login.php") : echo "active";
+                                    <?php
+                                    if ($first_part == "login.php") : echo "active";
                                     endif; ?>"><a href="/login.php">Log in</a></li>
                                     <li class="
-                                    <?php if ($first_part == "register.php") : echo "active";
+                                    <?php
+                                    if ($first_part == "register.php") : echo "active";
                                     endif; ?>"><a href="/register.php">Register</a></li>
                                 </ul>
                             </nav>
                         </div>
-                    <?php endif; ?>
-                    <!-- END NO USER IS -->
-                    <?php if (isset($_SESSION['user'])) :
-                        get_user($database);
-                        get_all_tasks($database);
-                    ?>
-                        <div class="container">
-                            <div class="view-account">
-                                <section class="module">
-                                    <div class="module-inner">
-                                        <div class="side-bar">
-                                            <div class="user-info">
-                                                <img class="img-profile img-circle img-responsive" src="/assets/images/Tick-Green-Check.png" alt="">
-                                                <ul class="meta list list-unstyled">
-                                                    <li class="name"><?php echo $_SESSION['user']['name'] ?><br>
-                                                        <label class="label-sm label-info">Just do it!</label>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <nav class="side-menu">
-                                                <ul class="nav">
-                                                    <li class="
-                                                    <?php if ($first_part == "index.php") : echo "active";
+                    </div>
+            </div>
+        </div>
+    <?php endif; ?>
+    <!-- END NO USER IS -->
+    <?php if (isset($_SESSION['user'])) :
+        get_user($database);
+        get_all_tasks($database); ?>
+        <div class="container">
+            <div class="view-account">
+                <section class="module">
+                    <div class="module-inner">
+                        <div class="side-bar">
+                            <div class="user-info">
+                                <img class="img-profile img-circle img-responsive" src="/assets/images/Tick-Green-Check.png" alt="">
+                                <ul class="meta list list-unstyled">
+                                    <li class="name"><?php echo $_SESSION['user']['name'] ?><br>
+                                        <label class="label-sm label-info">Just do it!</label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <nav class="side-menu">
+                                <ul class="nav">
+                                    <li class="
+                                                    <?php
+                                                    if ($first_part == "index.php") : echo "active";
                                                     endif; ?>"><a href="/index.php">Home</a></li>
-                                                    <li class="
-                                                    <?php if ($first_part == "profile.php") : echo "active";
+                                    <li class="
+                                                    <?php
+                                                    if ($first_part == "profile.php") : echo "active";
                                                     endif; ?>"><a href="/profile.php">Profile</a></li>
-                                                    <li class="
-                                                    <?php if ($first_part == "tasks.php") : echo "active";
+                                    <li class="
+                                                    <?php
+                                                    if ($first_part == "tasks.php") : echo "active";
                                                     endif; ?>"><a href="/tasks.php">Tasks</a></li>
-                                                    <li class="
-                                                    <?php if ($first_part == "lists.php") : echo "active";
+                                    <li class="
+                                                    <?php
+                                                    if ($first_part == "lists.php") : echo "active";
                                                     endif; ?>"><a href="/lists.php">Lists</a></li>
-                                                    <li class="
-                                                    <?php if ($first_part == "logout.php") : echo "active";
+                                    <li class="
+                                                    <?php
+                                                    if ($first_part == "logout.php") : echo "active";
                                                     endif; ?>"><a href="/app/users/logout.php">Log out</a></li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                    <?php endif; ?>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    <?php endif; ?>
