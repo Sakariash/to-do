@@ -1,21 +1,20 @@
 name: Lint
-
-on: [push, pull_request]
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-jobs:
-  run:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: shivammathur/setup-php@v2
-      - name: PSR-12
-      - with:
-          php-version: 8.1
-            tools: phpcs
-              - run: phpcs --extensions=php --standard=PSR12 --colors -n .
+  on: [push, pull_request]
+    push:
+      branches:
+        - main
+    pull_request:
+      branches:
+        - main
+  jobs:
+    run:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: shivammathur/setup-php@v2
+        - name: PSR-12
+        - with:
+            php-version: 8.1
+              tools: phpcs
+                - run: phpcs --extensions=php --standard=PSR12 --colors -n .
       # - run: phpcs --standard=PSR12 --colors -n .
