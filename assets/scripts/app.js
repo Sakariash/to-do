@@ -43,6 +43,11 @@ tasks.forEach((task) => {
   task.querySelector('.editBtn').addEventListener('click', () => {
     task.querySelector('.edit-task-container').classList.toggle('hidden');
   });
+
+  task.querySelector('.notCompleteBtn').addEventListener('click', () => {
+    task.querySelector('.completeBtn').classList.toggle('hidden');
+    task.querySelector('.notCompleteBtn').classList.toggle('hidden');
+  });
 });
 
 const lists = document.querySelectorAll('.listRow');
@@ -55,22 +60,3 @@ lists.forEach((list) => {
     list.querySelector('.show-list-task').classList.toggle('hidden');
   });
 });
-
-// const deleteForm = document.querySelector('.delete-user-form');
-
-// deleteForm.addEventListener('submit', (e) => {
-//   e.preventDefault();
-
-//   const formData = new FormData(this);
-
-//   fetch('index.php', {
-//     method: 'post',
-//     body: formData,
-//   })
-//     .then(function (response) {
-//       return response.text();
-//     })
-//     .then(function (text) {
-//       console.log(text);
-//     });
-// });

@@ -1,8 +1,4 @@
-<?php
-
-require __DIR__ . '/navigation.php';
-
-?>
+<?php require __DIR__ . '/navigation.php'; ?>
 
 <div class="content-panel">
     <h2 class="title">Tasks</h2>
@@ -13,8 +9,7 @@ require __DIR__ . '/navigation.php';
                 <img class="img-rounded img-responsive" src="<?php echo $_SESSION['user']['image']; ?>" alt="">
             </figure>
         </div>
-        <?php
-        if (isset($_SESSION['errors'])) :
+        <?php if (isset($_SESSION['errors'])) :
             foreach ($_SESSION['errors'] as $error) : ?>
                 <p class="alert alert-danger"><?= $error ?></p>
             <?php endforeach;
@@ -39,18 +34,14 @@ require __DIR__ . '/navigation.php';
         if (isset($_SESSION['task-uncompleted'])) : ?>
             <p class="alert alert-primary"><?php echo htmlspecialchars($_SESSION['task-uncompleted']); ?></p>
         <?php unset($_SESSION['task-uncompleted']);
-        endif;
-        ?>
-
-
-        <h3 class="title"><?php echo htmlspecialchars($_SESSION['user']['name']) ?>, lets create a task and finish it in the last second! </h3>
+        endif; ?>
+        <h3 class="title"><?php echo htmlspecialchars($_SESSION['user']['name']) ?>, lets create a task and finish it in the last second!</h3>
         <div class="form-group">
             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
                 <button class="btn btn-primary all-tasks">All Tasks +</button>
                 <button class="btn btn-primary create-task">Create Task +</button>
             </div>
         </div>
-
         <!-- CREATE TASK -->
         <section class="create-task-container hidden">
             <form action="app/tasks/create-task.php" method="post">
@@ -87,7 +78,6 @@ require __DIR__ . '/navigation.php';
         <section class="show-task-container hidden">
             <?php $tasks = get_all_tasks($database);
             foreach ($tasks as $task) : ?>
-
                 <div class="taskRow" data-id="<?php echo $task['id'] ?>">
                     <div class="row align-items-center">
                         <div class="col">
@@ -98,35 +88,24 @@ require __DIR__ . '/navigation.php';
                             <span>Due date</span>
                             <p><?php echo htmlspecialchars($task["due_date"]); ?></p>
                         </div>
-
                         <div class="col-md-push-2 col-sm-push-1 col-xs-push-0">
-
                             <form action="/app/tasks/update-task.php" method="POST">
-
                                 <input type="hidden" value="<?php echo $task['id'] ?>" name="completed-switch">
-
                                 <button type="submit" name="not-completed" class="completed-switch btn btn-form btn-sm img-responsive">
-
                                     <?php if ($task['completed'] == true) : ?>
                                         <img src="/assets/images/double-tick-done.png" class="doneBtn" value="<?php echo $task['id'] ?>">
                                     <?php else : ?>
                                         <img src="/assets/images/double-tick-not-done.png" class="not-complete" value="<?php echo $task['id'] ?>">
                                     <?php endif; ?>
                                 </button>
-
-                                <!-- <input type="hidden" value="<?php echo $task['id'] ?>" name="completed-task">
-                                <button type="submit" name="task-completed" class="completeBtn btn btn-form btn-sm img-responsive hidden"><img src="/assets/images/double-tick-done.png" class="doneBtn" value="<?= $task['id'] ?>"></button> -->
                             </form>
-
-                            <button type="submit" name="edit-task" class="editBtn btn btn-form btn-sm img-responsive"><img src="/assets/images/edit.png" class="img-responsive" value="<?= $task['id'] ?>"></button>
-
+                            <button type="submit" name="edit-task" class="editBtn btn btn-form btn-sm img-responsive"><img src="/assets/images/edit.png" class="img-responsive" value="<?= $task['id'] ?>"><?php echo $task['id'] ?></button>
                             <form action="/app/tasks/delete-task.php" method="POST">
                                 <input type="hidden" value="<?php echo $task['id'] ?>" name="delete-task">
                                 <button type="submit" name="delete" class="deleteBtn btn btn-form btn-sm img-responsive"><img src="/assets/images/bin.png" value="<?= $task['id'] ?>"></button>
                             </form>
                         </div>
                     </div>
-
                     <!-- EDIT TASK -->
                     <section class="edit-task-container hidden">
                         <form action="/app/tasks/update-task.php" method="post">
@@ -156,11 +135,9 @@ require __DIR__ . '/navigation.php';
     </fieldset>
 </div>
 </div>
-<!-- </section> -->
 </div>
 </div>
-<?php
-if (!$_SESSION['user']) :
+<?php if (!$_SESSION['user']) :
     redirect('/login.php');
 endif; ?>
 </article>

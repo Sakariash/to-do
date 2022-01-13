@@ -78,28 +78,8 @@ function tasksToComplete($database, $user_id)
 
     $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    // die(var_dump($tasks['id']));
     return $tasks;
 }
 // function back() {
 //     redirect($_SERVER['HTTP_REFERER']);
 // }
-
-
-
-// header('Content-Type: application/json');
-
-// echo json_encode($actor);
-function json_response(array $data = [], int $statusCode = 200): string
-{
-    // First we set the HTTP status code which will default to 200. If you want
-    // to read more about status codes, please visit: https://httpstatuses.com/
-    http_response_code($statusCode);
-
-    // We should always specify what kind of data is returned, in this case we
-    // need to set the content type to JSON.
-    header('Content-Type: application/json');
-
-    // Conver the JSON data into a string.
-    return json_encode($data);
-}

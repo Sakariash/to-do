@@ -3,24 +3,18 @@
 <div class="content-panel">
     <h1 class="title">Welcome!</h1>
     <h2 class="fieldset-title">Log in</h2>
-    <?php
-    if (isset($_SESSION['errors'])) :
+    <?php if (isset($_SESSION['errors'])) :
         foreach ($_SESSION['errors'] as $error) : ?>
             <p class="alert alert-danger"><?php echo htmlspecialchars($error); ?></p>
     <?php endforeach;
         unset($_SESSION['errors']);
-    endif;
-    ?>
-    <?php
-
-    if (isset($_SESSION['confirm'])) :
+    endif; ?>
+    <?php if (isset($_SESSION['confirm'])) :
         foreach ($_SESSION['confirm'] as $confirmUser) : ?>
             <p class="alert alert-success"><?php echo htmlspecialchars($confirmUser); ?></p>
     <?php endforeach;
         unset($_SESSION['confirm']);
-    endif;
-    ?>
-
+    endif; ?>
     <form action="app/users/login.php" method="post" class="form-horizontal">
         <div class="form-group">
             <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
@@ -29,13 +23,11 @@
                 <small class="form-text">Please provide your email adress.</small>
             </div>
         </div>
-
         <div class="form-group">
             <label class="col-md-2 col-sm-3 col-xs-12 control-label">Password</label>
             <div class="col-md-10 col-sm-9 col-xs-12">
                 <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                 <small class="form-text">Please provide your password.</small>
-
             </div>
         </div>
         <hr>

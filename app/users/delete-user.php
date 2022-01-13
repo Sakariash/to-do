@@ -47,5 +47,4 @@ if (isset($_POST['password'])) :
         redirect('/login.php');
 
     endif;
-
 endif;

@@ -24,7 +24,6 @@ if (isset($_POST['email'], $_POST['password'])) :
         redirect('/login.php');
     endif;
 
-
     if (password_verify($password, $user['password'])) :
         unset($user['password']);
 
@@ -41,5 +40,4 @@ if (isset($_POST['email'], $_POST['password'])) :
         $_SESSION['errors'][] = 'The email address or the password is incorrect.';
         redirect('/login.php');
     endif;
-
 endif;

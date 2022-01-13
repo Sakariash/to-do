@@ -5,7 +5,6 @@
 
 <script src="/assets/scripts/app.js" defer></script>
 <footer>
-
 </footer>
 </body>
 

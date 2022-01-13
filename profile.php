@@ -1,6 +1,4 @@
-<?php
-
-require __DIR__ . '/navigation.php'; ?>
+<?php require __DIR__ . '/navigation.php'; ?>
 
 <div class="content-panel">
     <h2 class="title">Profile</h2>
@@ -13,7 +11,6 @@ require __DIR__ . '/navigation.php'; ?>
             <fieldset class="fieldset">
                 <p>Name : <?php echo htmlspecialchars($_SESSION['user']['name']); ?></p>
                 <p>Email : <?php echo htmlspecialchars($_SESSION['user']['email']); ?></p>
-                <p>Tasks to complete :</p>
                 <h3 class="fieldset-title">Update profile</h3>
                 <form action="app/users/imageUpload.php" method="post" enctype="multipart/form-data" class="form-horizontal">
                     <div class="form-group col-md-10 col-sm-9 col-xs-12">
@@ -27,48 +24,36 @@ require __DIR__ . '/navigation.php'; ?>
                 <button onclick="updateProfile()" type="submit" name="submit" class="btn btn-primary btn-sm" value="Update Profile" id="update-button">Update profile</button>
                 </form>
             </div>
-            <?php
-            if (isset($_SESSION['update-errors'])) :
+            <?php if (isset($_SESSION['update-errors'])) :
                 foreach ($_SESSION['update-errors'] as $error) : ?>
                     <p class="alert alert-danger"><?php echo htmlspecialchars($error) ?></p>
             <?php endforeach;
                 unset($_SESSION['update-errors']);
-            endif;
-            ?>
-            <?php
-            if (isset($_SESSION['confirm'])) : ?>
+            endif; ?>
+            <?php if (isset($_SESSION['confirm'])) : ?>
                 <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['confirm']) ?></p>
             <?php unset($_SESSION['confirm']);
-            endif;
-            ?>
-            <?php
-            if (isset($_SESSION['password-errors'])) :
+            endif; ?>
+            <?php if (isset($_SESSION['password-errors'])) :
                 foreach ($_SESSION['password-errors'] as $error) : ?>
                     <p class="alert alert-danger"><?php echo htmlspecialchars($error) ?></p>
             <?php endforeach;
                 unset($_SESSION['password-errors']);
-            endif;
-            ?>
-            <?php
-            if (isset($_SESSION['password_updated'])) : ?>
+            endif; ?>
+            <?php if (isset($_SESSION['password_updated'])) : ?>
                 <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['password_updated']) ?></p>
             <?php unset($_SESSION['password_updated']);
-            endif;
-            ?>
-            <?php
-            if (isset($_SESSION['image_errors'])) :
+            endif; ?>
+            <?php if (isset($_SESSION['image_errors'])) :
                 foreach ($_SESSION['image_errors'] as $error) : ?>
                     <p class="alert alert-danger"><?php echo htmlspecialchars($error) ?></p>
             <?php endforeach;
                 unset($_SESSION['image_errors']);
-            endif;
-            ?>
-            <?php
-            if (isset($_SESSION['confirm-email'])) : ?>
+            endif; ?>
+            <?php if (isset($_SESSION['confirm-email'])) : ?>
                 <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['confirm-email']) ?></p>
             <?php unset($_SESSION['confirm-email']);
-            endif;
-            ?>
+            endif; ?>
             <div class="hidden" id="update-profile">
                 <form action="app/users/update2.php" method="post" class="form-horizontal">
                     <div class="form-group">
@@ -124,5 +109,4 @@ require __DIR__ . '/navigation.php'; ?>
 </div>
 </div>
 </article>
-<?php require __DIR__ . '/views/footer.php';
-?>
+<?php require __DIR__ . '/views/footer.php'; ?>

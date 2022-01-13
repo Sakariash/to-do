@@ -1,7 +1,6 @@
-<?php require __DIR__ . '/navigation.php';
+<?php require __DIR__ . '/navigation.php'; ?>
 
-if ($_SESSION) :
-?>
+<?php if ($_SESSION) : ?>
     <div class="content-panel">
         <h2 class="title">Index</h2>
         <fieldset class="fieldset">
@@ -11,7 +10,6 @@ if ($_SESSION) :
                     <img class="img-rounded img-responsive" src="<?php echo $_SESSION['user']['image']; ?>" alt="">
                 </figure>
             </div>
-
             <h1>Due date</h1>
             <div class="form-group">
                 <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
@@ -19,12 +17,9 @@ if ($_SESSION) :
                 </div>
             </div>
             <hr>
-
             <section class="show-task-container hidden">
-                <?php
-                $tasks = due_date($database);
+                <?php $tasks = due_date($database);
                 foreach ($tasks as $task) : ?>
-
                     <div class="taskRow" data-id="<?php echo $task['id'] ?>">
                         <div class="row align-items-center">
                             <div class="col">
@@ -35,18 +30,14 @@ if ($_SESSION) :
                                 <span>Due date</span>
                                 <p class="bold"> <?php echo htmlspecialchars($task["due_date"]); ?></p>
                             </div>
-
                             <div class="col-md-push-2 col-sm-push-1 col-xs-push-0">
-
                                 <button type="submit" name="edit-task" class="editBtn btn btn-form btn-sm img-responsive"><img src="/assets/images/edit.png" class="img-responsive" value="<?= $task['id'] ?>"></button>
-
                                 <form action="/app/tasks/delete-task.php" method="POST">
                                     <input type="hidden" value="<?php echo $task['id'] ?>" name="delete-task">
                                     <button type="submit" name="delete" class="deleteBtn btn btn-form btn-sm img-responsive"><img src="/assets/images/bin.png" value="<?= $task['id'] ?>"></button>
                                 </form>
                             </div>
                         </div>
-
                         <!-- EDIT TASK -->
                         <section class="edit-task-container hidden">
                             <form action="/app/tasks/update-task.php" method="post">
@@ -78,9 +69,8 @@ if ($_SESSION) :
     </div>
     </div>
     </div>
-<?php
-endif;
-if (!$_SESSION['user']) :
+<?php endif; ?>
+<?php if (!$_SESSION['user']) :
     redirect('/login.php');
 endif; ?>
 </article>

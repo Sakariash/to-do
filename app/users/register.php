@@ -1,9 +1,8 @@
 <?php
-//DONE
+
 declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
-
 
 if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['password-repeat'])) :
     $name = trim($_POST['name']);

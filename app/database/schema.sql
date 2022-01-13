@@ -13,7 +13,7 @@ CREATE TABLE users (
 CREATE TABLE lists (
   id integer not null primary key autoincrement,
   user_id integer not null,
-  task_id integer not null,
+  task_id integer not null, /*delete*/
   title varchar not null,
   foreign key (user_id) references users(id),
   foreign key (task_id) references tasks(id)

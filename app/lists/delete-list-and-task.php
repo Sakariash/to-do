@@ -12,7 +12,6 @@ if (isset($_POST['delete-all'])) :
     $statement->bindParam(':id', $listId, PDO::PARAM_INT);
     $statement->execute();
 
-
     $query = 'DELETE FROM tasks WHERE list_id = :list_id';
     $statement = $database->prepare($query);
     $statement->bindParam(':list_id', $listId, PDO::PARAM_INT);
@@ -23,7 +22,6 @@ if (isset($_POST['delete-all'])) :
     redirect('/lists.php');
 
 endif;
-
 
 $_SESSION['errors'] = 'Something went wrong.';
 // back();

@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-
 $id = $_SESSION['user']['id'];
 
 if (isset($_POST['submit'])) :
-
     if (empty($_POST['old-pwd'])) :
         $_SESSION['update-errors'][] = 'Please confirm the updates by typing in your old password!';
 
@@ -62,6 +60,7 @@ if (isset($_POST['submit'])) :
             $_SESSION['password-errors'][] = 'No match my man!';
             redirect('/profile.php');
         endif;
+
         $uppercase = preg_match('@[A-Z]@', $updPwd,);
         $lowercase = preg_match('@[a-z]@', $updPwd,);
         $number = preg_match('@[0-9]@', $updPwd,);

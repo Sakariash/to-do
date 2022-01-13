@@ -1,7 +1,7 @@
-<?php require __DIR__ . '/navigation.php';
+<?php require __DIR__ . '/navigation.php'; ?>
 
-$tasks = get_all_tasks($database);
-?>
+<?php $tasks = get_all_tasks($database); ?>
+
 <div class="content-panel">
     <h2 class="title">Lists</h2>
     <fieldset class="fieldset">
@@ -31,15 +31,13 @@ $tasks = get_all_tasks($database);
         <?php unset($_SESSION['list-deleted']);
         endif;
         ?>
-
-        <h3 class="title"><?php echo htmlspecialchars($_SESSION['user']['name']); ?>, lets create a list to get more structured! </h3>
+        <h3 class="title"><?php echo htmlspecialchars($_SESSION['user']['name']); ?>, lets create a list to get more structured!</h3>
         <div class="form-group">
             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
                 <button class="btn btn-primary all-lists">All Lists +</button>
                 <button type="submit" name="create-lists" class="btn btn-primary create-lists">Create list +</button>
             </div>
         </div>
-
         <!-- CREATE LIST -->
         <section class="create-list-container hidden">
             <form action="app/lists/create-list.php" method="post">
@@ -52,11 +50,9 @@ $tasks = get_all_tasks($database);
             </form>
         </section>
         <hr>
-
         <section class="show-list-container hidden">
             <?php $lists = get_all_lists($database);
             foreach ($lists as $list) : ?>
-
                 <div class="listRow" data-id="<?php echo $list['id'] ?>">
                     <div class="row align-items-center">
                         <div class="col">
@@ -74,10 +70,8 @@ $tasks = get_all_tasks($database);
                                 <input type="hidden" value="<?php echo $list['id'] ?>" name="delete-list">
                                 <button type="submit" name="delete" class="deleteBtn btn btn-sm img-responsive"><img src="/assets/images/bin.png" value="<?= $list['id'] ?>"></button>
                             </form>
-
                         </div>
                     </div>
-
                     <!-- EDIT TASK -->
                     <section class="edit-list-container hidden">
                         <form action="/app/lists/update-list.php" method="post">
@@ -90,42 +84,30 @@ $tasks = get_all_tasks($database);
                             <button type="submit" name="edit" value="<?php echo $list['id'] ?>" class="btn btn-primary">Edit list</button>
                         </form>
                     </section>
-
                     <section class="show-list-task hidden">
                         <?php foreach ($tasks as $task) :
-
                             if ($list['id'] == $task['list_id']) : ?>
                                 <div class="col-sm-6">
-
                                     <p>- <?php echo htmlspecialchars($task['title']); ?> <br></p>
-
                                 </div>
                             <?php endif; ?>
-                        <?php
-                        endforeach;
-                        ?>
+                        <?php endforeach; ?>
                         <form action="/app/lists/delete-list-and-task.php" method="post">
                             <input type="hidden" value="<?php echo $list['id'] ?>" name="delete-all">
                             <button type="submit" name="delete-all" value="<?php echo $list['id'] ?>" class="btn btn-danger">Delete list</button>
                             <small class="form-text">Delete list along with all its tasks.</small>
                         </form>
-
                     </section>
                     <hr>
-
                 </div>
-            <?php
-            endforeach;
-            ?>
+            <?php endforeach; ?>
         </section>
     </fieldset>
 </div>
 </div>
 </div>
 </div>
-<?php
-
-if (!$_SESSION['user']) :
+<?php if (!$_SESSION['user']) :
     redirect('/Test.php');
 endif; ?>
 </article>

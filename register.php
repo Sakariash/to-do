@@ -4,14 +4,12 @@
     <h2 class="title">Sign Up</h2>
     <fieldset class="fieldset">
         <h3 class="fieldset-title">Register User</h3>
-        <?php
-        if (isset($_SESSION['errors'])) :
+        <?php if (isset($_SESSION['errors'])) :
             foreach ($_SESSION['errors'] as $error) : ?>
                 <p class="alert alert-danger"><?php echo htmlspecialchars($error) ?></p>
         <?php endforeach;
             unset($_SESSION['errors']);
-        endif;
-        ?>
+        endif; ?>
         <form action="app/users/register.php" method="post" class="form-horizontal">
             <div class="form-group">
                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Name</label>
@@ -20,7 +18,6 @@
                     <small class="form-text">Please provide your full name.</small>
                 </div>
             </div>
-
             <div class="form-group">
                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>
                 <div class="col-md-10 col-sm-9 col-xs-12">
@@ -56,5 +53,4 @@
 </div>
 </div>
 </article>
-<?php require __DIR__ . '/views/footer.php';
-?>
+<?php require __DIR__ . '/views/footer.php'; ?>

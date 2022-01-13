@@ -6,7 +6,6 @@ require __DIR__ . '/../autoload.php';
 
 $tasks = get_all_tasks($database);
 
-
 if (isset($_POST['title'], $_POST['description'])) :
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
@@ -57,7 +56,6 @@ if (isset($_POST['completed-switch'])) :
         endif;
     endforeach;
 
-
     $query = 'UPDATE tasks SET completed = :completed WHERE id = :id';
     $statement = $database->prepare($query);
     $statement->bindParam(':id', $taskId, PDO::PARAM_INT);
@@ -69,11 +67,6 @@ if (isset($_POST['completed-switch'])) :
     redirect('/tasks.php');
 
 endif;
-
-
-
-
-
 
 $_SESSION['errors'][] = 'Something went wrong.';
 
