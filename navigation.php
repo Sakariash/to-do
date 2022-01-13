@@ -18,7 +18,6 @@ $first_part = $components[1];
                         <div class="side-bar">
                             <div class="user-info">
                                 <img class="img-profile img-circle img-responsive center-block" src="/assets/images/Tick-Green-Check.png" alt="">
-                                <!-- <img class="img-profile img-circle img-responsive center-block" src="<?php echo $_SESSION['user']['image']; ?>" alt=""> -->
                                 <ul class="meta list list-unstyled">
                                     <li class="name">Wunderlist<br>
                                         <label class="label label-info">Just do it!</label>

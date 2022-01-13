@@ -75,6 +75,7 @@
             </form>
         </section>
         <hr>
+        <!-- SHOW ALL TASK ON JS CLICKEVENT -->
         <section class="show-task-container hidden">
             <?php $tasks = get_all_tasks($database);
             foreach ($tasks as $task) : ?>
@@ -89,6 +90,7 @@
                             <p><?php echo htmlspecialchars($task["due_date"]); ?></p>
                         </div>
                         <div class="col-md-push-2 col-sm-push-1 col-xs-push-0">
+                            <!-- SET TASK AS COMPLETED / NOT COMPLETED -->
                             <form action="/app/tasks/update-task.php" method="POST">
                                 <input type="hidden" value="<?php echo $task['id'] ?>" name="completed-switch">
                                 <button type="submit" name="not-completed" class="completed-switch btn btn-form btn-sm img-responsive">
@@ -99,6 +101,7 @@
                                     <?php endif; ?>
                                 </button>
                             </form>
+                            <!-- EDIT LIST ONLY WORKS ON FIRST LIST, CLICKEVENT NEEDS ADJUSTING -->
                             <button type="submit" name="edit-task" class="editBtn btn btn-form btn-sm img-responsive"><img src="/assets/images/edit.png" class="img-responsive" value="<?= $task['id'] ?>"><?php echo $task['id'] ?></button>
                             <form action="/app/tasks/delete-task.php" method="POST">
                                 <input type="hidden" value="<?php echo $task['id'] ?>" name="delete-task">

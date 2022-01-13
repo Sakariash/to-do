@@ -71,13 +71,13 @@
                             </form>
                         </div>
                     </div>
-                    <!-- EDIT TASK -->
+                    <!-- EDIT LIST -->
                     <section class="edit-list-container hidden">
                         <form action="/app/lists/update-list.php" method="post">
                             <div class="task-form">
                                 <label for="title">List title</label>
                                 <input class="form-control" type="text" name="title" id="title" placeholder="List title:" required>
-                                <small class="form-text">Please set at title for your list.</small>
+                                <small class="form-text">Please set a title for your list.</small>
                             </div>
                             <input type="hidden" value="<?php echo $list['id'] ?>" name="edit-list">
                             <button type="submit" name="edit" value="<?php echo $list['id'] ?>" class="btn btn-primary">Edit list</button>
