@@ -2,15 +2,55 @@ INSERT MANDATORY GIF
 
 # Project Title
 
-Text about the project and why it exists. This would also be a great place to link the project online.
+This is a to-do list application .
+A school project written in HTML, CSS, JavaScript, SQL and PHP.
+
++ As a user I'm able to create an account.
+
++ As a user I'm able to login.
+
++ As a user I'm able to logout.
+
++ As a user I'm able to edit my account email and password.
+
++ As a user I'm able to upload a profile avatar image.
+
++ As a user I'm able to create new tasks with title, description and deadline date.
+
++ As a user I'm able to edit my tasks.
+
++ As a user I'm able to delete my tasks.
+
++ As a user I'm able to mark tasks as completed.
+
++ As a user I'm able to mark tasks as uncompleted.
+
++ As a user I'm able to create new task lists with title.
+
++ As a user I'm able to edit my task lists.
+
++ As a user I'm able to delete my task lists along with all tasks.
+
++ As a user I'm able to add a task to a list.
+
++ As a user I'm able to view all tasks.
+
++ As a user I'm able to view all tasks within a list.
+
++ As a user I'm able to view all tasks which should be completed today.
+
++ Extra: As a user I'm able to delete my account along with all tasks and lists.
+
+
 
 # Installation
 
-Add the installation instructions.
++ Clone repo via the terminal or GitHub desktop.
++ Run the application in localhost.
 
 # Code Review
 
-Code review written by [Jane Doh](https://github.com/username).
+Code review written by [Hanna Rosenberg](https://github.com/hanna-rosenberg).
 
 1. `register.php:9-10`- Make sure you filter/sanitize the input from the user.
 2. `config.php:6` - Change "titel" to "title", otherwise the title of your site won't show in the browser-bar!
