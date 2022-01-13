@@ -13,7 +13,7 @@ if (isset($_POST['title'], $_POST['description'])) :
     $taskId = $_POST['edit-task'];
 
     if (isset($_POST['date'])) :
-        if ($_POST['date'] > date('Y-m-d')) :
+        if ($_POST['date'] >= date('Y-m-d')) :
             $dueDate = $_POST['date'];
         else :
             $_SESSION['errors'][] = 'The date has already past, choose a later date.';
