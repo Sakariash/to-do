@@ -7,8 +7,8 @@
         foreach ($_SESSION['errors'] as $error) : ?>
             <p class="alert alert-danger"><?php echo htmlspecialchars($error); ?></p>
         <?php endforeach; ?>
-    <?php unset($_SESSION['errors']);
-    endif; ?>
+        <?php unset($_SESSION['errors']); ?>
+    <?php endif; ?>
     <?php if (isset($_SESSION['confirm'])) :
         foreach ($_SESSION['confirm'] as $confirmUser) : ?>
             <p class="alert alert-success"><?php echo htmlspecialchars($confirmUser); ?></p>
