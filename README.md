@@ -50,7 +50,7 @@ A school project written in HTML, CSS, JavaScript, SQL and PHP.
 
 # Code Review
 
-Code review written by [Emma Hansson](https://github.com/h-emma).
+Code review written by [Hanna Rosenberg](https://github.com/hanna-rosenberg).
 
 1. `register.php:9-10`- Make sure you filter/sanitize the input from the user.
 2. `config.php:6` - Change "titel" to "title", otherwise the title of your site won't show in the browser-bar!
