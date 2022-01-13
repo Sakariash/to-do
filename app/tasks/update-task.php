@@ -18,7 +18,7 @@ if (isset($_POST['title'], $_POST['description'])) :
             $_SESSION['errors'][] = 'The date has already past, choose a later date.';
             redirect('/tasks.php');
         endif;
-    endif;;
+    endif;
 
     $query = 'UPDATE tasks SET title = :title, description = :description, due_date = :due_date WHERE id = :id';
 
@@ -36,7 +36,7 @@ endif;
 
 if (isset($_POST['completed-switch'])) :
     $taskId = $_POST['completed-switch'];
-    $completed = True;
+    $completed = true;
 
     foreach ($tasks as $task) :
         if ($task['id'] === $taskId) :
@@ -65,7 +65,6 @@ if (isset($_POST['completed-switch'])) :
     $_SESSION['task-done'] = 'You got it done, great job!';
 
     redirect('/tasks.php');
-
 endif;
 
 $_SESSION['errors'][] = 'Something went wrong.';

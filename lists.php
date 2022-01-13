@@ -20,17 +20,16 @@
         endif;
         if (isset($_SESSION['list-created'])) : ?>
             <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['list-created']); ?></p>
-        <?php unset($_SESSION['list-created']);
-        endif;
-        if (isset($_SESSION['list-edited'])) : ?>
+            <?php unset($_SESSION['list-created']); ?>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['list-edited'])) : ?>
             <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['list-edited']); ?></p>
-        <?php unset($_SESSION['list-edited']);
-        endif;
-        if (isset($_SESSION['list-deleted'])) : ?>
+            <?php unset($_SESSION['list-edited']); ?>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['list-deleted'])) : ?>
             <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['list-deleted']); ?></p>
-        <?php unset($_SESSION['list-deleted']);
-        endif;
-        ?>
+            <?php unset($_SESSION['list-deleted']); ?>
+        <?php endif; ?>
         <h3 class="title"><?php echo htmlspecialchars($_SESSION['user']['name']); ?>, lets create a list to get more structured!</h3>
         <div class="form-group">
             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">

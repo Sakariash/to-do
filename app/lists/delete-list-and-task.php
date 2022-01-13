@@ -20,7 +20,6 @@ if (isset($_POST['delete-all'])) :
     $_SESSION['list-deleted'] = 'Your list was deleted along with all its tasks.';
 
     redirect('/lists.php');
-
 endif;
 
 $_SESSION['errors'] = 'Something went wrong.';

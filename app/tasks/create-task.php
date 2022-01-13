@@ -32,7 +32,6 @@ if (isset($_POST['title'])) :
     else :
         $listId = 0;
     endif;
-
 endif;
 
 $query = 'INSERT INTO tasks (user_id, title, list_id, description, created, due_date, completed) VALUES (:user_id, :title, :list_id,:description, :created, :due_date, :completed)';

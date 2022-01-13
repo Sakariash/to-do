@@ -29,10 +29,12 @@ $first_part = $components[1];
                             </div>
                             <nav class="side-menu">
                                 <ul class="nav">
-                                    <li class="<?php if ($first_part == "login.php") : echo "active";
-                                                endif; ?>"><a href="/login.php">Log in</a></li>
-                                    <li class="<?php if ($first_part == "register.php") : echo "active";
-                                                endif; ?>"><a href="/register.php">Register</a></li>
+                                    <li class="
+                                    <?php if ($first_part == "login.php") : echo "active";
+                                    endif; ?>"><a href="/login.php">Log in</a></li>
+                                    <li class="
+                                    <?php if ($first_part == "register.php") : echo "active";
+                                    endif; ?>"><a href="/register.php">Register</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -57,16 +59,21 @@ $first_part = $components[1];
                                             </div>
                                             <nav class="side-menu">
                                                 <ul class="nav">
-                                                    <li class="<?php if ($first_part == "index.php") : echo "active";
-                                                                endif; ?>"><a href="/index.php">Home</a></li>
-                                                    <li class="<?php if ($first_part == "profile.php") : echo "active";
-                                                                endif; ?>"><a href="/profile.php">Profile</a></li>
-                                                    <li class="<?php if ($first_part == "tasks.php") : echo "active";
-                                                                endif; ?>"><a href="/tasks.php">Tasks</a></li>
-                                                    <li class="<?php if ($first_part == "lists.php") : echo "active";
-                                                                endif; ?>"><a href="/lists.php">Lists</a></li>
-                                                    <li class="<?php if ($first_part == "logout.php") : echo "active";
-                                                                endif; ?>"><a href="/app/users/logout.php">Log out</a></li>
+                                                    <li class="
+                                                    <?php if ($first_part == "index.php") : echo "active";
+                                                    endif; ?>"><a href="/index.php">Home</a></li>
+                                                    <li class="
+                                                    <?php if ($first_part == "profile.php") : echo "active";
+                                                    endif; ?>"><a href="/profile.php">Profile</a></li>
+                                                    <li class="
+                                                    <?php if ($first_part == "tasks.php") : echo "active";
+                                                    endif; ?>"><a href="/tasks.php">Tasks</a></li>
+                                                    <li class="
+                                                    <?php if ($first_part == "lists.php") : echo "active";
+                                                    endif; ?>"><a href="/lists.php">Lists</a></li>
+                                                    <li class="
+                                                    <?php if ($first_part == "logout.php") : echo "active";
+                                                    endif; ?>"><a href="/app/users/logout.php">Log out</a></li>
                                                 </ul>
                                             </nav>
                                         </div>

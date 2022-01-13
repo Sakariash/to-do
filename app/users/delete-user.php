@@ -17,13 +17,10 @@ if (isset($_POST['password'])) :
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
     if (!password_verify($password, $user['password'])) :
-
         $_SESSION['password-errors'][] = 'You typed in the wrong password, please try again! Your account is still active.';
 
         redirect('/profile.php');
-
     else :
-
         $query = 'DELETE FROM users WHERE id = :id';
 
         $statement = $database->prepare($query);
@@ -45,6 +42,5 @@ if (isset($_POST['password'])) :
         $_SESSION['confirm'][] = 'The account was successfully deleted.';
 
         redirect('/login.php');
-
     endif;
 endif;

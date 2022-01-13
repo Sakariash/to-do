@@ -13,8 +13,8 @@
         foreach ($_SESSION['confirm'] as $confirmUser) : ?>
             <p class="alert alert-success"><?php echo htmlspecialchars($confirmUser); ?></p>
         <?php endforeach; ?>
-    <?php unset($_SESSION['confirm']);
-    endif; ?>
+        <?php unset($_SESSION['confirm']); ?>
+    <?php endif; ?>
     <form action="app/users/login.php" method="post" class="form-horizontal">
         <div class="form-group">
             <label class="col-md-2 col-sm-3 col-xs-12 control-label">Email</label>

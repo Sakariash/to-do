@@ -17,24 +17,24 @@
         endif;
         if (isset($_SESSION['task-created'])) : ?>
             <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['task-created']); ?></p>
-        <?php unset($_SESSION['task-created']);
-        endif;
-        if (isset($_SESSION['task-deleted'])) : ?>
+            <?php unset($_SESSION['task-created']); ?>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['task-deleted'])) : ?>
             <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['task-deleted']); ?></p>
-        <?php unset($_SESSION['task-deleted']);
-        endif;
-        if (isset($_SESSION['task-updated'])) : ?>
+            <?php unset($_SESSION['task-deleted']); ?>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['task-updated'])) : ?>
             <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['task-updated']); ?></p>
-        <?php unset($_SESSION['task-updated']);
-        endif;
-        if (isset($_SESSION['task-done'])) : ?>
+            <?php unset($_SESSION['task-updated']); ?>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['task-done'])) : ?>
             <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['task-done']); ?></p>
-        <?php unset($_SESSION['task-done']);
-        endif;
-        if (isset($_SESSION['task-uncompleted'])) : ?>
+            <?php unset($_SESSION['task-done']); ?>
+        <?php endif; ?>
+        <?php if (isset($_SESSION['task-uncompleted'])) : ?>
             <p class="alert alert-primary"><?php echo htmlspecialchars($_SESSION['task-uncompleted']); ?></p>
-        <?php unset($_SESSION['task-uncompleted']);
-        endif; ?>
+            <?php unset($_SESSION['task-uncompleted']); ?>
+        <?php endif; ?>
         <h3 class="title"><?php echo htmlspecialchars($_SESSION['user']['name']) ?>, lets create a task and finish it in the last second!</h3>
         <div class="form-group">
             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">

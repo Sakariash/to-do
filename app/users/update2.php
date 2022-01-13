@@ -25,7 +25,6 @@ if (isset($_POST['submit'])) :
         $_SESSION['password-errors'][] = 'You typed in the wrong password, please try again!';
 
         redirect('/profile.php');
-
     endif;
     if (isset($_POST['updated-email'])) :
         $email = trim($_POST['updated-email']);
@@ -61,10 +60,10 @@ if (isset($_POST['submit'])) :
             redirect('/profile.php');
         endif;
 
-        $uppercase = preg_match('@[A-Z]@', $updPwd,);
-        $lowercase = preg_match('@[a-z]@', $updPwd,);
-        $number = preg_match('@[0-9]@', $updPwd,);
-        $specialChars = preg_match('@[^\w]@', $updPwd,);
+        $uppercase = preg_match('@[A-Z]@', $updPwd);
+        $lowercase = preg_match('@[a-z]@', $updPwd);
+        $number = preg_match('@[0-9]@', $updPwd);
+        $specialChars = preg_match('@[^\w]@', $updPwd);
 
         if (!$uppercase || !$number || !$specialChars || strlen($updPwd,) < 8) :
             $_SESSION['errors'][] = 'The password should contain atleast 8 characters and should include at least one uppercase letter, one number, and one special character!';
