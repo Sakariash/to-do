@@ -38,8 +38,8 @@
                 foreach ($_SESSION['password-errors'] as $error) : ?>
                     <p class="alert alert-danger"><?php echo htmlspecialchars($error) ?></p>
                 <?php endforeach; ?>
-            <?php unset($_SESSION['password-errors']);
-            endif; ?>
+                <?php unset($_SESSION['password-errors']); ?>
+            <?php endif; ?>
             <?php if (isset($_SESSION['password_updated'])) : ?>
                 <p class="alert alert-success"><?php echo htmlspecialchars($_SESSION['password_updated']) ?></p>
                 <?php unset($_SESSION['password_updated']); ?>
