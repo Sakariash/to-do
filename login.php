@@ -6,14 +6,14 @@
     <?php if (isset($_SESSION['errors'])) :
         foreach ($_SESSION['errors'] as $error) : ?>
             <p class="alert alert-danger"><?php echo htmlspecialchars($error); ?></p>
-    <?php endforeach;
-        unset($_SESSION['errors']);
+        <?php endforeach; ?>
+    <?php unset($_SESSION['errors']);
     endif; ?>
     <?php if (isset($_SESSION['confirm'])) :
         foreach ($_SESSION['confirm'] as $confirmUser) : ?>
             <p class="alert alert-success"><?php echo htmlspecialchars($confirmUser); ?></p>
-    <?php endforeach;
-        unset($_SESSION['confirm']);
+        <?php endforeach; ?>
+    <?php unset($_SESSION['confirm']);
     endif; ?>
     <form action="app/users/login.php" method="post" class="form-horizontal">
         <div class="form-group">
