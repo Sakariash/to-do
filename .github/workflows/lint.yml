@@ -6,11 +6,10 @@ jobs:
   run:
     runs-on: ubuntu-latest
 
-    name: PSR-12
-
     steps:
       - uses: actions/checkout@v2
       - uses: shivammathur/setup-php@v2
+      - name: PSR-12
         with:
           php-version: 8.1
           tools: phpcs
