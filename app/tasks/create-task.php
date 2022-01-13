@@ -18,7 +18,7 @@ if (isset($_POST['title'])) :
     endif;
 
     if (isset($_POST['date'])) :
-        if ($_POST['date'] > date('Y-m-d')) :
+        if ($_POST['date'] >= date('Y-m-d')) :
             $dueDate = $_POST['date'];
         else :
             $_SESSION['errors'][] = 'The date has already past, choose a later date.';
