@@ -70,3 +70,13 @@ Tested by the following people:
 
 1. Jane Doe
 2. John Doe
+
+# Wunderlist+
+
+[Alice Nyberg](https://github.com/alicenyberg) added two features: 
++ As a user I'm able to search for tasks.
++ As a user I'm able to move a task from one list to another.
+
+
+view the pull request here: https://github.com/Sakariash/to-do/pull/3
+
