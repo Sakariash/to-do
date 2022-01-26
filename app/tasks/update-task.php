@@ -7,6 +7,7 @@ require __DIR__ . '/../autoload.php';
 $tasks = get_all_tasks($database);
 
 if (isset($_POST['title'], $_POST['description'])) :
+    $userId = $_SESSION['user']['id'];
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
     $taskId = $_POST['edit-task'];
@@ -18,14 +19,21 @@ if (isset($_POST['title'], $_POST['description'])) :
             $_SESSION['errors'][] = 'The date has already past, choose a later date.';
             redirect('/tasks.php');
         endif;
+        if (isset($_POST['list'])) :
+            $listId = trim($_POST['list']);
+        else :
+            $listId = 0;
+        endif;
     endif;
 
-    $query = 'UPDATE tasks SET title = :title, description = :description, due_date = :due_date WHERE id = :id';
+    $query = 'UPDATE tasks SET title = :title, description = :description, list_id = :list_id, due_date = :due_date WHERE id = :id AND user_id = :user_id';
 
     $statement = $database->prepare($query);
     $statement->bindParam(':id', $taskId, PDO::PARAM_INT);
     $statement->bindParam(':title', $title, PDO::PARAM_STR);
-    $statement->bindParam(':description', $desctription, PDO::PARAM_STR);
+    $statement->bindParam(':description', $description, PDO::PARAM_STR);
+    $statement->bindParam(':list_id', $listId, PDO::PARAM_INT);
+    $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
     $statement->bindParam(':due_date', $dueDate, PDO::PARAM_STR);
 
     $statement->execute();

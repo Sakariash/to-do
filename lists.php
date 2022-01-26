@@ -62,9 +62,7 @@
                             <button type="submit" class="show-task btn"><img src="/assets/images/down-arrow.png" class="img-responsive" alt=""></button>
                         </div>
                         <div class="col-md-push-2 col-sm-push-3 col-xs-push-0">
-
                             <button type="submit" name="edit-list" class="editListBtn btn btn-sm img-responsive"><img src="/assets/images/edit.png" class="img-responsive" value="<?= $list['id'] ?>"></button>
-
                             <form action="/app/lists/delete-list.php" method="POST">
                                 <input type="hidden" value="<?php echo $list['id'] ?>" name="delete-list">
                                 <button type="submit" name="delete" class="deleteBtn btn btn-sm img-responsive"><img src="/assets/images/bin.png" value="<?= $list['id'] ?>"></button>

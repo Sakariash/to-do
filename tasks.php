@@ -127,6 +127,17 @@
                                 <input class="form-control" type="date" name="date" id="date">
                                 <small class="form-text">Set a due date for your task.</small>
                             </div>
+                            <div class="task-form">
+                                <label for="list">Move your task to another list</label>
+                                <select name="list" id="list" class="form-control" id="changeList">
+                                    <option value="" disabled selected class="placeholder">Change list</option>
+                                    <?php $lists = get_all_lists($database);
+                                    foreach ($lists as $list) : ?>
+                                        <option value="<?php echo $list['id']; ?>"><?php echo htmlspecialchars($list['title']); ?></option>
+                                    <?php endforeach ?>
+                                </select>
+                                <small class="form-text">Place task in task-list.</small>
+                            </div>
                             <input type="hidden" value="<?php echo $task['id'] ?>" name="edit-task">
                             <button type="submit" name="edit" value="<?php echo $task['id'] ?>" class="btn btn-primary">Edit task</button>
                         </form>
