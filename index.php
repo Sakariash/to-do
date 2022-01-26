@@ -64,6 +64,17 @@
                     </div>
                 <?php endforeach; ?>
             </section>
+            <div class="search">
+                <h5>Here you can search for a task: </h5>
+                <form action=" /search.php" method="POST" class="search">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="search">
+                        <div class="input-group-append">
+                            <button class="btn brn primary" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </fieldset>
     </div>
     </div>

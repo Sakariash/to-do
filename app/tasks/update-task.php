@@ -31,7 +31,7 @@ if (isset($_POST['title'], $_POST['description'])) :
     $statement = $database->prepare($query);
     $statement->bindParam(':id', $taskId, PDO::PARAM_INT);
     $statement->bindParam(':title', $title, PDO::PARAM_STR);
-    $statement->bindParam(':description', $desctription, PDO::PARAM_STR);
+    $statement->bindParam(':description', $description, PDO::PARAM_STR);
     $statement->bindParam(':list_id', $listId, PDO::PARAM_INT);
     $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
     $statement->bindParam(':due_date', $dueDate, PDO::PARAM_STR);

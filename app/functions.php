@@ -83,3 +83,35 @@ function tasksToComplete($database, $user_id)
 // function back() {
 //     redirect($_SERVER['HTTP_REFERER']);
 // }
+
+// function for search
+
+function get_results(PDO $database)
+{
+    $user_id = $_SESSION['user']['id'];
+    if (isset($_POST['search'])) {
+        $trim_search = trim($_POST['search']);
+        $sanitize_search = filter_var($trim_search, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $search = "%" . ($sanitize_search) . "%";
+        $statement = $database->prepare(
+            'SELECT tasks.id, tasks.due_date, tasks.list_id, tasks.title, tasks.user_id, tasks.completed, tasks.description, lists.title
+            AS list_title
+            FROM tasks
+            INNER JOIN  lists
+            ON tasks.list_id = list_id
+            WHERE tasks.user_id = :user_id
+            AND (tasks.title
+            LIKE :search
+            OR tasks.description
+            LIKE :search
+            OR list_title
+            LIKE :search)'
+        );
+        $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+        $statement->bindParam(':search', $search, PDO::PARAM_STR);
+        $statement->execute();
+
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
+}
