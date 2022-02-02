@@ -43,7 +43,6 @@ $first_part = $components[1];
                         </div>
 
                     <?php endif; ?>
-                    <!-- END NO USER IS -->
                     <?php if (isset($_SESSION['user'])) :
                         get_user($database);
                         get_all_tasks($database); ?>
@@ -90,5 +89,4 @@ $first_part = $components[1];
                                                 </ul>
                                             </nav>
                                         </div>
-
                                     <?php endif; ?>
