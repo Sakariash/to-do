@@ -92,4 +92,7 @@ $first_part = $components[1];
                                 </ul>
                             </nav>
                         </div>
-                    <?php endif; ?>
+                    </div>
+            </div>
+        </div>
+    <?php endif; ?>
